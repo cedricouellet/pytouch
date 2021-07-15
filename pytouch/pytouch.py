@@ -1,6 +1,6 @@
 """pytouch.pytouch: provides entry point main()."""
 
-__version__ = "0.2.0"
+__version__ = "0.3.0"
 
 from .helpers import create_and_write_into, file_exists
 from sys import stderr, exit
