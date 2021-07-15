@@ -1,6 +1,6 @@
 """pytouch.pytouch: provides entry point main()."""
 
-__version__ = "0.3.1"
+__version__ = "0.1.1"
 
 import sys
 import os
