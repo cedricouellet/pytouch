@@ -1,49 +1,59 @@
 """pytouch.pytouch: provides entry point main()."""
 
-__version__ = "0.3.0"
+__version__ = "0.3.1"
 
-from .helpers import create_and_write_into, file_exists
-from sys import stderr, exit
+import sys
+import os
+import argparse
 from typing import NoReturn
-from argparse import Namespace, ArgumentParser
-
 import colorama
 from colorama import Fore
 
-colorama.init()
-
 
 def main() -> None:
-    """The main function of the script"""
+    """The main function ofs the script"""
+    colorama.init()
     args = parse_args()
 
     for file in args.file:
-        if file_exists(file):
+        if os.path.exists(file):
             if not args.quiet:
-                warn_file('The file already exists', file)
+                log_obj('The file already exists', file)
         else:
             try:
-                create_and_write_into(file, args.text)
+                write_into = args.text is not None
+
+                with open(file, 'w') as f:
+                    if write_into:
+                        f.write(args.text)
+
                 if args.verbose:
-                    print(Fore.RESET + 'File created: ' + Fore.CYAN + file)
+                    log_obj('File created', file)
+                    if write_into:
+                        log_obj(f'Contents written into {file}', args.text)
+
             except OSError as ex:
                 ex_exit(ex, 1)
 
 
-def warn_file(msg: str, file: str) -> None:
-    """Logs a message containing information about a file interaction, and the file itself."""
-    print(Fore.YELLOW + msg + ': ' + Fore.CYAN + file)
+def log_obj(msg: str, obj: any) -> None:
+    """Logs a message and an object to stdout."""
+    sys.stdout.write(Fore.YELLOW + f'{msg}: ' +
+                     Fore.CYAN + str(obj) + "\n")
 
 
-def ex_exit(ex: BaseException, exit_code: int = 1) -> NoReturn:
-    """Logs an error to the console and ends the program."""
-    print(Fore.YELLOW, "\n[CO] ", Fore.RED, ex.__class__.__name__, Fore.YELLOW, ": ", ex, file=stderr, sep='')
-    exit(exit_code)
+def ex_exit(ex: BaseException, status_code: int = 1) -> NoReturn:
+    """Logs an error on stderr the exits the program."""
+    sys.stderr.write(Fore.YELLOW, "\n[CO] ",
+                     Fore.RED, ex.__class__.__name__,
+                     Fore.YELLOW, ": ", ex,
+                     file=sys.stderr, sep='')
+    sys.exit(1)
 
 
-def parse_args() -> Namespace:
+def parse_args() -> argparse.Namespace:
     """Parse command line arguments."""
-    parser = ArgumentParser(
+    parser = argparse.ArgumentParser(
         description=Fore.YELLOW + "A barebones Python equivalent of the touch command in UNIX")
 
     parser.add_argument('file',
