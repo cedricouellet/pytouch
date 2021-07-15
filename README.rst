@@ -7,7 +7,7 @@ A Python tool similar to UNIX's touch.
 
 ::
 
- usage: pytouch.py [-h] [-q | -v] [-t TXT] FILE [FILE ...]
+ usage: pytouch [-h] [-q | -v] [-t TXT] FILE [FILE ...]
     A barebones Python equivalent of the touch command in UNIX
     positional arguments:
       FILE                File to create
