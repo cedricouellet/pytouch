@@ -1,8 +1,13 @@
 # pytouch
 A Python tool similar to UNIX's touch.
 
+To run the program, use `pytouch-runner.py`.
+Since it is configured as a pip package, it is not possible to run files individually.
+To install the dist version, use `pip install pytouch-cli`
+Then, all you have to do is write `pytouch` into your terminal.
+
 ```
-usage: pytouch.py [-h] [-q | -v] [-t TXT] FILE [FILE ...]
+usage: pytouch [-h] [-q | -v] [-t TXT] FILE [FILE ...]
 
 A barebones Python equivalent of the touch command in UNIX
 positional arguments:
