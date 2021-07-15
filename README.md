@@ -2,7 +2,7 @@
 A Python tool similar to UNIX's touch.
 
 ```
-usage: pytouch-runner.py [-h] [-q | -v] [-t TXT] FILE [FILE ...]
+usage: pytouch.py [-h] [-q | -v] [-t TXT] FILE [FILE ...]
 
 A barebones Python equivalent of the touch command in UNIX
 positional arguments:
