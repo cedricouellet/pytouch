@@ -1,11 +1,18 @@
 # pytouch
 A Python tool similar to UNIX's touch.
 
-To run the program, use `pytouch-runner.py`.
-Since it is configured as a pip package, it is not possible to run files individually.
-To install the dist version, use `pip install pytouch-cli`
-Then, all you have to do is write `pytouch` into your terminal.
+## Execution
+- Source
+  
+  Run `pytouch-runner.py`, it is a wrapper for running pytouch directly from source tree.
 
+- Dist
+  1. `pip install pytouch-cli`
+  2. `pytouch`
+
+For help, use `pytouch -h` or `pytouch --help`.
+
+## Usage
 ```
 usage: pytouch [-h] [-q | -v] [-t TXT] FILE [FILE ...]
 
