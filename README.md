@@ -15,9 +15,10 @@ Run `pytouch-runner.py`, it is a wrapper for running pytouch directly from root 
 
 2. Call `pytouch` to execute the script 
 
+## Usage
+
 For help, use `pytouch -h` or `pytouch --help`.
 
-## Usage
 ```
 usage: pytouch [-h] [-q | -v] [-t TXT] FILE [FILE ...]
 
