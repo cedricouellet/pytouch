@@ -1,6 +1,7 @@
 # pytouch
 A Python tool similar to UNIX's touch.
-For those unlucky enough Windows users that don't have WSL and don't want to use `echo < <filename>` to create files.
+
+For those unlucky enough Windows users that don't have WSL and don't want to use `echo < {filename}` to create files.
 
 ## Execution
 - Source
