@@ -6,7 +6,7 @@ For those unlucky enough Windows users that don't have WSL and don't want to use
 ## Execution
 - Source
   
-  Run `pytouch-runner.py`, it is a wrapper for running pytouch directly from source tree.
+  Run `pytouch-runner.py`, it is a wrapper for running pytouch directly from root directory.
 
 - Dist
   1. `pip install pytouch-cli`
