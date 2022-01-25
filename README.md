@@ -3,6 +3,10 @@ A Python tool similar to UNIX's touch.
 
 For those unlucky enough Windows users that don't have WSL and don't want to use `echo > {filename}` to create files.
 
+## Requirements
+- Python 3 or above (tested on Python 3.8)
+- pip (Python package installer)
+
 ## Execution
 
 ### Source
